@@ -7,38 +7,68 @@
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
   
   <title>Frontend Mentor | Tip calculator app</title>
-
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-  <style>
-    .attribution { font-size: 0.6875rem; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
-  </style>
 </head>
 <body>
+  <h1>
+    <img src="./images/logo.svg" alt="Splitter Tax Calculator App">
+  </h1>
 
-  Bill
+  <main>
+    <form novalidate>
+      <div class="variables">
+        <label for="billAmount">Bill</label>
+        <input type="text" name="billAmount" id="billAmount" inputmode="numeric" autocomplete="off" class="bill-input" placeholder="0">
 
-  Select Tip %
-  5%
-  10%
-  15%
-  25%
-  50%
-  Custom
+        <fieldset>
+          <legend>Select Tip %</legend>
 
-  Number of People
+          <ul>
+            <li>
+              <label for="fivePercent">5%</label>
+              <input type="radio" name="tipPercentage" id="fivePercent" value="5">
+            </li>
+            <li>
+              <label for="tenPercent">10%</label>
+              <input type="radio" name="tipPercentage" id="tenPercent" value="10">
+            </li>
+            <li>
+              <label for="fifteenPercent">15%</label>
+              <input type="radio" name="tipPercentage" id="fifteenPercent" value="15">
+            </li>
+            <li>
+              <label for="twentyFivePercent">25%</label>
+              <input type="radio" name="tipPercentage" id="twentyFivePercent" value="25">
+            </li>
+            <li>
+              <label for="fiftyPercent">50%</label>
+              <input type="radio" name="tipPercentage" id="fiftyPercent" value="50">
+            </li>
+            <li class="custom">
+              <input type="text" name="customPercentage" id="customPercentage" placeholder="0">
+              <input type="radio" inputmode="numeric" name="tipPercentage" id="fivePercent" value="0">
+            </li>
+          </ul>
+        </fieldset>
 
-  Tip Amount
-  / person
+        <label for="noOfPeple">
+          Number of People
+          <span class="error">Can't be zero</span>
+        </label>
+        <input type="text" inputmode="numeric" placeholder="0">
+      </div>
+      <div class="result">
+        <div>
+          <div>Tip Amount <span>/ person</span></div>
+          <p>$<span class="amount js-tip-amount">0.00</span></p>
+        </div>
+        <div>
+          <div>Total <span>/ person</span></div>
+          <p>$<span class="amount js-total">0.00</span></p>
+        </div>
 
-  Total
-  / person
-
-  Reset
-  
-  <footer class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
-  </footer>
+        <button type="reset">RESET</button>
+      </div>
+    </form>
+  </main>
 </body>
 </html>
