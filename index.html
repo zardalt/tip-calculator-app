@@ -6,17 +6,22 @@
 
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
   
+  <link rel="preload" as="font" type="font/ttf" href="./fonts/SpaceMono-Bold.ttf" crossorigin="anonymous">
+  
+  <link rel="stylesheet" href="./styles/general.css">
+  <link rel="stylesheet" href="./styles/main.css">
+  
   <title>Frontend Mentor | Tip calculator app</title>
 </head>
 <body>
   <h1>
-    <img src="./images/logo.svg" alt="Splitter Tax Calculator App">
+    <img src="./images/logo.svg" alt="Splitter Tax Calculator App" decoding="sync" fetchpriority="high" height="54" width="87">
   </h1>
 
   <main>
     <form novalidate>
       <div class="variables">
-        <label for="billAmount">Bill</label>
+        <label for="billAmount" class="bill-amount">Bill</label>
         <input type="text" name="billAmount" id="billAmount" inputmode="numeric" autocomplete="off" class="bill-input" placeholder="0">
 
         <fieldset>
@@ -44,29 +49,33 @@
               <input type="radio" name="tipPercentage" id="fiftyPercent" value="50">
             </li>
             <li class="custom">
-              <input type="text" name="customPercentage" id="customPercentage" placeholder="0">
-              <input type="radio" inputmode="numeric" name="tipPercentage" id="fivePercent" value="0">
+              <label for="customPercent">
+                <input type="text" name="customPercentage" id="customPercentage" placeholder="Custom">
+              </label>
+              <input type="radio" inputmode="numeric" name="tipPercentage" id="customPercent" value="0">
             </li>
           </ul>
         </fieldset>
 
-        <label for="noOfPeple">
+        <label for="noOfPeople" class="no-of-people">
           Number of People
-          <span class="error">Can't be zero</span>
+          <span class="error" aria-live="polite"></span>
         </label>
-        <input type="text" inputmode="numeric" placeholder="0">
+        <input type="text" inputmode="numeric" placeholder="0" name="noOfPeople" id="noOfPeople">
       </div>
       <div class="result">
         <div>
-          <div>Tip Amount <span>/ person</span></div>
-          <p>$<span class="amount js-tip-amount">0.00</span></p>
+          <div aria-live="polite" aria-atomic="true">
+            <div>Tip Amount <span>/ person</span></div>
+            <p>$<span class="amount js-tip-amount">0.00</span></p>
+          </div>
+          <div aria-live="polite" aria-atomic="true">
+            <div>Total <span>/ person</span></div>
+            <p>$<span class="amount js-total">0.00</span></p>
+          </div>
         </div>
-        <div>
-          <div>Total <span>/ person</span></div>
-          <p>$<span class="amount js-total">0.00</span></p>
-        </div>
-
-        <button type="reset">RESET</button>
+        
+        <button type="reset" disabled>RESET</button>
       </div>
     </form>
   </main>
