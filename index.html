@@ -12,6 +12,8 @@
   <link rel="stylesheet" href="./styles/main.css">
   
   <title>Frontend Mentor | Tip calculator app</title>
+
+  <script type="module" src="./scripts/index.js" defer></script>
 </head>
 <body>
   <h1>
@@ -21,8 +23,21 @@
   <main>
     <form novalidate>
       <div class="variables">
-        <label for="billAmount" class="bill-amount">Bill</label>
-        <input type="text" name="billAmount" id="billAmount" inputmode="numeric" autocomplete="off" class="bill-input" placeholder="0">
+        <label for="billAmount" class="bill-amount">
+          Bill
+          <span class="error" aria-live="polite"></span>
+        </label>
+        <input type="text" 
+               name="billAmount" 
+               id="billAmount" 
+               inputmode="numeric" 
+               autocomplete="off" 
+               class="bill-input" 
+               placeholder="0" 
+               data-allow-decimal="1" 
+               data-range-start="1"
+               data-range-end="1000000"
+        >
 
         <fieldset>
           <legend>Select Tip %</legend>
@@ -49,10 +64,15 @@
               <input type="radio" name="tipPercentage" id="fiftyPercent" value="50">
             </li>
             <li class="custom">
-              <label for="customPercent">
-                <input type="text" name="customPercentage" id="customPercentage" placeholder="Custom">
-              </label>
-              <input type="radio" inputmode="numeric" name="tipPercentage" id="customPercent" value="0">
+              <input type="text" 
+                     name="customPercentage" 
+                     id="customPercentage" 
+                     placeholder="Custom"
+                     inputmode="numeric" 
+                     autocomplete="off"
+                     data-range-start="1"
+                     data-range-end="100"
+              >
             </li>
           </ul>
         </fieldset>
@@ -61,7 +81,15 @@
           Number of People
           <span class="error" aria-live="polite"></span>
         </label>
-        <input type="text" inputmode="numeric" placeholder="0" name="noOfPeople" id="noOfPeople">
+        <input type="text" 
+               inputmode="numeric" 
+               placeholder="0" 
+               name="noOfPeople" 
+               id="noOfPeople" 
+               autocomplete="off"
+               data-range-start="1"
+               data-range-end="Infinity"
+        >
       </div>
       <div class="result">
         <div>

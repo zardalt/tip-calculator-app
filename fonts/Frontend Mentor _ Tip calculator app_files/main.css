@@ -171,32 +171,24 @@ fieldset {
   }
 }
 
-label.no-of-people,
-label.bill-amount {
+label.no-of-people {
   display: flex;
   justify-content: space-between;
-  gap: 1.2em;
 
   & .error {
     color: var(--red);
   }
 
   & + input[type=text] {
+    background-image: url('../images/icon-person.svg');
+
     &:invalid {
       outline-color: var(--red);
     }
-  }
-}
 
-label.no-of-people & + input[type=text] {
-  background-image: url('../images/icon-person.svg');
-
-  &:invalid {
-    outline-color: var(--red);
-  }
-
-  @media (min-width: 56.25em) {
-    margin-block-end: 0;
+    @media (min-width: 56.25em) {
+      margin-block-end: 0;
+    }
   }
 }
 
